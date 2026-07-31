@@ -5,7 +5,6 @@ import TaskForm from './components/TaskForm.vue'
 import FilterBar from './components/FilterBar.vue'
 import TaskCounter from './components/TaskCounter.vue'
 
-// --- persistência em JSON (localStorage) ---
 const STORAGE_KEY = 'lista-tarefas'
 const TRASH_KEY = 'lista-tarefas-lixeira'
 
@@ -23,7 +22,7 @@ function carregarTarefas() {
     { id: 2, desc: 'Trabalho de Inglês', status: 'concluida' },
     { id: 3, desc: 'Prova de Matemática', status: 'pendente' }
   ]
-}
+}  
 
 function carregarLixeira() {
   const raw = localStorage.getItem(TRASH_KEY)
@@ -48,7 +47,6 @@ watch(lixeira, (novo) => {
   localStorage.setItem(TRASH_KEY, JSON.stringify(novo))
 }, { deep: true })
 
-// --- estado da UI ---
 const novaTarefa = ref('')
 const posicaoAlterar = ref(-1)
 const filtro = ref('')
