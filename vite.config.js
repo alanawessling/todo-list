@@ -1,9 +1,10 @@
 import { fileURLToPath, URL } from 'node:url'
+import { env } from 'node:process'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  base: '/todo-list/',
+  base: env.VERCEL ? '/' : '/todo-list/',
 
   plugins: [vue()],
 
